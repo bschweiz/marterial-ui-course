@@ -10,7 +10,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Header />
-      Art Goes Here...
+      "Make Art Not Content."
     </ThemeProvider>
   );
 }
