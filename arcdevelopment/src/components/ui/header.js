@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
@@ -55,6 +55,12 @@ export default function Header(props) {
         setValue(value);
     }
 
+    useEffect(() => {
+        if (window.location.pathname === "/" && value !== 0) {
+            setValue(0)
+        }
+
+    })
     return (
         <React.Fragment>
 
@@ -88,6 +94,7 @@ export default function Header(props) {
                             label="Drawing" 
                             />
                         </Tabs>
+
                             <Button className={classes.button} variant="contained" 
                                     color="secondary" 
                                     label="Contact">
