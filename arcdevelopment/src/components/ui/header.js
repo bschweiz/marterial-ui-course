@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { Button } from '@material-ui/core';
 import { Tab, Tabs } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
+import {Link} from 'react-router-dom';
 
 import logo from '../../assets/BVSLogo.png'
 
@@ -47,7 +48,12 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function Header(props) {
-    const classes = useStyles()
+    const classes = useStyles();
+    const [value, setValue] = useState(0);
+
+    const handleChange = (e, value) => {
+        setValue(value);
+    }
 
     return (
         <React.Fragment>
@@ -56,13 +62,35 @@ export default function Header(props) {
                 <AppBar position="fixed">
                     <Toolbar disableGutters>
                         <img alt="BVS_logo" className={classes.logo} src={logo} />
-                        <Tabs className={classes.tabContainer}>
-                            <Tab className={classes.tab} label="Home" />
-                            <Tab className={classes.tab} label="Photo" />
-                            <Tab className={classes.tab} label="Video" />
-                            <Tab className={classes.tab} label="Drawing" />
+                        <Tabs 
+                            value={value}
+                            onChange={handleChange}
+                            className={classes.tabContainer}
+                            >
+                            <Tab className={classes.tab} 
+                            component={Link}
+                            to="/"
+                            label="Home" 
+                            />
+                            <Tab className={classes.tab} 
+                            component={Link}
+                            to="/photos"
+                            label="Photo" 
+                            />
+                            <Tab className={classes.tab} 
+                            component={Link}
+                            to="/videos"
+                            label="Video" 
+                            />
+                            <Tab className={classes.tab} 
+                            component={Link}
+                            to="/drawings"
+                            label="Drawing" 
+                            />
                         </Tabs>
-                            <Button className={classes.button} variant="contained" color="secondary" label="Contact">
+                            <Button className={classes.button} variant="contained" 
+                                    color="secondary" 
+                                    label="Contact">
                                 Contact
                             </Button>
                     </Toolbar>
