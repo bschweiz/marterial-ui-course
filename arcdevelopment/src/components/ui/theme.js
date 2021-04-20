@@ -16,6 +16,11 @@ export default createMuiTheme({
             main: `${bTeal}`,
         },
     },
+    typography: {
+        h3: {
+            fontWeight: 300
+        }
+    }
 });
 
 
