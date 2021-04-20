@@ -48,6 +48,17 @@ const useStyles = makeStyles(theme => ({
         color: "white",
         textTransform: "None",
         borderRadius: "2rem"
+    },
+    menu: {
+        backgroundColor: theme.palette.common.blue,
+        color: "white"
+    },
+    menuItem: {
+        ...theme.typography.tab,
+        // opacity: 0.7,
+        // "&:hover": {
+        //     opacity: 1
+        // }
     }
 }))
 
@@ -116,7 +127,7 @@ export default function Header(props) {
                             <Tab className={classes.tab}
                                 component={Link}
                                 to="/photos"
-                                label="Photo"
+                                label="Photography"
                             />
                             <Tab className={classes.tab}
                                 component={Link}
@@ -144,12 +155,15 @@ export default function Header(props) {
                             anchorEl={anchorEl}
                             open={open}
                             onClose={handleClose}
+                            classes={{paper: classes.menu}}
                             MenuListProps={{onMouseLeave: handleClose}}
+                            elevation={0}
                         >
                             <MenuItem 
                                 onClick={() => {handleClose(); setValue(3)}}
                                 component={Link} 
-                                to="/drawings"   
+                                to="/drawings"
+                                classes={{root: classes.menuItem}}   
                             >
                                 All Drawings</MenuItem>
                             <MenuItem 
