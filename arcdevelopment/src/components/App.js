@@ -17,9 +17,9 @@ function App() {
           <Route exact path="/photos" component={() => <div>Photos</div>} />
           <Route exact path="/videos" component={() => <div>Videos</div>} />
           <Route exact path="/drawings" component={() => <div>Drawings</div>} />
-          <Route exact path="/about" component={() => <div>About</div>} />
           <Route exact path="/contact" component={() => <div>Contact</div>} />
-          <Route exact path="/apps" component={() => <div>Apps</div>} />
+          <Route exact path="/studio" component={() => <div>Studio Drawings</div>} />
+          <Route exact path="/sketches" component={() => <div>Personal Sketches</div>} />
         </Switch>
       </BrowserRouter>
     </ThemeProvider>
