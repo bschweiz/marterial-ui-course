@@ -5,7 +5,7 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { Button } from '@material-ui/core';
 import { Tab, Tabs } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import logo from '../../assets/BVSLogo.png'
 
@@ -32,6 +32,9 @@ const useStyles = makeStyles(theme => ({
         borderRadius: "3rem",
         padding: ".5rem"
     },
+    logoContainer: {
+        padding: 0,
+    },
     tabContainer: {
         marginLeft: "auto"
     },
@@ -43,7 +46,7 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: "primary",
         color: "white",
         textTransform: "None",
-        borderRadius: "2rem" 
+        borderRadius: "2rem"
     }
 }))
 
@@ -59,16 +62,16 @@ export default function Header(props) {
         if (window.location.pathname === "/" && value !== 0) {
             setValue(0);
         } else if (window.location.pathname === "/photos" && value !==
-        1) {
+            1) {
             setValue(1);
         } else if (window.location.pathname === "/videos" && value !==
-        2) {
+            2) {
             setValue(2);
         } else if (window.location.pathname === "/drawings" && value !==
-        3) {
+            3) {
             setValue(3);
         } else if (window.location.pathname === "/contact" && value !==
-        4) {
+            4) {
             setValue(4);
         }
     }, [value])
@@ -78,45 +81,53 @@ export default function Header(props) {
             <ElevationScroll>
                 <AppBar position="fixed">
                     <Toolbar disableGutters>
-                        <img alt="BVS_logo" className={classes.logo} src={logo} />
-                        <Tabs 
+                        <Button
+                            component={Link}
+                            to="/"
+                            disableRipple
+                            onClick={() => setValue(0)}
+                            className={classes.logoContainer}
+                        >
+                            <img alt="BVS_logo" className={classes.logo} src={logo} />
+                        </Button>
+                        <Tabs
                             value={value}
                             onChange={handleChange}
                             className={classes.tabContainer}
-                            >
-                            <Tab className={classes.tab} 
-                            component={Link}
-                            to="/"
-                            label="Home" 
+                        >
+                            <Tab className={classes.tab}
+                                component={Link}
+                                to="/"
+                                label="Home"
                             />
-                            <Tab className={classes.tab} 
-                            component={Link}
-                            to="/photos"
-                            label="Photo" 
+                            <Tab className={classes.tab}
+                                component={Link}
+                                to="/photos"
+                                label="Photo"
                             />
-                            <Tab className={classes.tab} 
-                            component={Link}
-                            to="/videos"
-                            label="Video" 
+                            <Tab className={classes.tab}
+                                component={Link}
+                                to="/videos"
+                                label="Video"
                             />
-                            <Tab className={classes.tab} 
-                            component={Link}
-                            to="/drawings"
-                            label="Drawing" 
+                            <Tab className={classes.tab}
+                                component={Link}
+                                to="/drawings"
+                                label="Drawing"
                             />
                         </Tabs>
 
-                            <Button className={classes.button} variant="contained" 
-                                    color="secondary" 
-                                    label="Contact">
-                                Contact
+                        <Button className={classes.button} variant="contained"
+                            color="secondary"
+                            label="Contact">
+                            Contact
                             </Button>
                     </Toolbar>
                 </AppBar>
             </ElevationScroll>
-            
+
             <div className={classes.toolbarMargin} />
-        
+
         </React.Fragment>
     )
 }
