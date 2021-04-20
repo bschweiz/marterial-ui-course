@@ -2,7 +2,7 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import { Typography } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { Tab, Tabs } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
@@ -37,6 +37,12 @@ const useStyles = makeStyles(theme => ({
     tab: {
         ...theme.typography.tab,
         minwidth: 10,
+    },
+    button: {
+        backgroundColor: "primary",
+        color: "white",
+        textTransform: "None",
+        borderRadius: "2rem" 
     }
 }))
 
@@ -52,11 +58,13 @@ export default function Header(props) {
                         <img alt="BVS_logo" className={classes.logo} src={logo} />
                         <Tabs className={classes.tabContainer}>
                             <Tab className={classes.tab} label="Home" />
-                            <Tab className={classes.tab} label="Photos" />
+                            <Tab className={classes.tab} label="Photo" />
                             <Tab className={classes.tab} label="Video" />
-                            <Tab className={classes.tab} label="About" />
-                            <Tab className={classes.tab} label="Contact" />
+                            <Tab className={classes.tab} label="Drawing" />
                         </Tabs>
+                            <Button className={classes.button} variant="contained" color="secondary" label="Contact">
+                                Contact
+                            </Button>
                     </Toolbar>
                 </AppBar>
             </ElevationScroll>
