@@ -3,6 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { Typography } from '@material-ui/core';
+import { Tab, Tabs } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
 import logo from '../../assets/BVSLogo.png'
@@ -29,6 +30,13 @@ const useStyles = makeStyles(theme => ({
         height: "3em",
         borderRadius: "3rem",
         padding: ".5rem"
+    },
+    tabContainer: {
+        marginLeft: "auto"
+    },
+    tab: {
+        ...theme.typography.tab,
+        minwidth: 10,
     }
 }))
 
@@ -42,9 +50,13 @@ export default function Header(props) {
                 <AppBar position="fixed">
                     <Toolbar disableGutters>
                         <img alt="BVS_logo" className={classes.logo} src={logo} />
-                        <Typography variant="h4">
-                            BSCHWEIZ
-                        </Typography>
+                        <Tabs className={classes.tabContainer}>
+                            <Tab className={classes.tab} label="Home" />
+                            <Tab className={classes.tab} label="Photos" />
+                            <Tab className={classes.tab} label="Video" />
+                            <Tab className={classes.tab} label="About" />
+                            <Tab className={classes.tab} label="Contact" />
+                        </Tabs>
                     </Toolbar>
                 </AppBar>
             </ElevationScroll>
