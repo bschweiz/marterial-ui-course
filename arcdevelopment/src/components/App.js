@@ -5,7 +5,7 @@ import Header from './ui/header'
 function App() {
   return (
     <div className="App">
-      <Header >
+      <Header />
       {[...new Array(12)]
                         .map(
                             () => `You stay on top of her, Buddy. Don't be afraid to ride her. Hard. You're Killing Me, Buster. In the mid '90s, Tobias formed a folk music band with Lindsay and Maebe which he called Dr. Funke's 100 Percent Natural Good Time Family Band Solution. The group was underwritten by the Natural Food Life Company, a division of Chem-Grow, an Allen Crayne acqusition, which was part of the Squimm Group. Their motto was simple: We keep you alive. I am getting rid of this thing. It has caused me nothing but pride and self-respect. I don't appreciate the dry British humor.
@@ -29,7 +29,6 @@ You stay on top of her, Buddy. Don't be afraid to ride her. Hard. And although t
 I made a huge tiny mistake. No, she's in it. She's a contestant. It's sorta like an inner beauty pageant. Ah, there it is. The only thing more terrifying than the escaped lunatic's hook was his twisted call… Hey campers! What do you expect, Mother? I'm half machine! I'm a monster!! Uncle Gob… was Aunt Lindsay ever pregnant? Yeah, sure, dozens of times. I hear the jury's still out on science.`,
                         )
                         .join('\n')}
-      </Header>
     </div>
   );
 }
