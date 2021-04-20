@@ -123,8 +123,11 @@ export default function Header(props) {
                                 to="/videos"
                                 label="Video"
                             />
-                            <Tab className={classes.tab}
+                            <Tab aria-owns={anchorEl ? "simple-menu" : undefined}
+                                aria-haspopup={anchorEl ? "true" : undefined}
+                                className={classes.tab}
                                 component={Link}
+                                onMouseOver={event => handleClick(event)}
                                 to="/drawings"
                                 label="Drawing"
                             />
@@ -134,7 +137,24 @@ export default function Header(props) {
                             color="secondary"
                             label="Contact">
                             Contact
-                            </Button>
+                        </Button>
+
+                        <Menu
+                            id="simple-menu"
+                            anchorEl={anchorEl}
+                            open={open}
+                            onClose={handleClose}
+                            MenuListProps={{onMouseLeave: handleClose}}
+                        >
+                            <MenuItem 
+                                onClick={handleClose}
+                                component={Link} 
+                                to="/sketches"   
+                            >
+                                Studio Work</MenuItem>
+                            <MenuItem onClick={handleClose}>
+                                Sketches</MenuItem>
+                        </Menu>
                     </Toolbar>
                 </AppBar>
             </ElevationScroll>
