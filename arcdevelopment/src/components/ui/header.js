@@ -24,6 +24,11 @@ function ElevationScroll(props) {
 const useStyles = makeStyles(theme => ({
     toolbarMargin: {
         ...theme.mixins.toolbar
+    },
+    logo: {
+        height: "3em",
+        borderRadius: "3rem",
+        padding: ".5rem"
     }
 }))
 
@@ -35,8 +40,8 @@ export default function Header(props) {
 
             <ElevationScroll>
                 <AppBar position="fixed">
-                    <Toolbar >
-                        <img alt="BVS_logo" src={logo} />
+                    <Toolbar disableGutters>
+                        <img alt="BVS_logo" className={classes.logo} src={logo} />
                         <Typography variant="h4">
                             BSCHWEIZ
                         </Typography>
