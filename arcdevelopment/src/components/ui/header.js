@@ -149,6 +149,12 @@ export default function Header(props) {
                             <MenuItem 
                                 onClick={() => {handleClose(); setValue(3)}}
                                 component={Link} 
+                                to="/drawings"   
+                            >
+                                All Drawings</MenuItem>
+                            <MenuItem 
+                                onClick={() => {handleClose(); setValue(3)}}
+                                component={Link} 
                                 to="/studio"   
                             >
                                 Studio Work</MenuItem>
