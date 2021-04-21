@@ -7,8 +7,10 @@ import { Tab, Tabs } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { Link } from 'react-router-dom';
 import { Menu, MenuItem } from '@material-ui/core'
+import MenuIcon from '@material-ui/icons/Menu'
 
 import useMediaQuery from '@material-ui/core/useMediaQuery'
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import { useTheme } from '@material-ui/core/styles'
 
 import logo from '../../assets/BVSLogo.png'
