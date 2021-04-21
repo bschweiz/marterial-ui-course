@@ -55,10 +55,10 @@ const useStyles = makeStyles(theme => ({
     },
     menuItem: {
         ...theme.typography.tab,
-        // opacity: 0.7,
-        // "&:hover": {
-        //     opacity: 1
-        // }
+        opacity: 0.7,
+        "&:hover": {
+            opacity: 1
+        }
     }
 }))
 
@@ -170,11 +170,13 @@ export default function Header(props) {
                                 onClick={() => {handleClose(); setValue(3)}}
                                 component={Link} 
                                 to="/studio"   
+                                classes={{root: classes.menuItem}}   
                             >
                                 Studio Work</MenuItem>
                             <MenuItem onClick={() => {handleClose(); setValue(3)}}
                                 component={Link} 
-                                to="/sketches"   
+                                to="/sketches"
+                                classes={{root: classes.menuItem}}      
                             >
                                 Sketches</MenuItem>
                         </Menu>
