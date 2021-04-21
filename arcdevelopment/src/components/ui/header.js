@@ -55,10 +55,10 @@ const useStyles = makeStyles(theme => ({
     },
     menuItem: {
         ...theme.typography.tab,
-        // opacity: 0.7,
-        // "&:hover": {
-        //     opacity: 1
-        // }
+        opacity: 0.7,
+        "&:hover": {
+            opacity: 1
+        }
     }
 }))
 
@@ -67,6 +67,7 @@ export default function Header(props) {
     const [value, setValue] = useState(0);
     const [anchorEl, setAnchorEl] = useState(null);
     const [open, setOpen] = useState(false);
+    const [selectedIndex, setSelectedIndex] = useState(0)
 
     const handleChange = (e, value) => {
         setValue(value);
@@ -82,22 +83,63 @@ export default function Header(props) {
         setOpen(false)
     }
 
+    const handleMenuItemClick = (e, i) => {
+        setAnchorEl(null)
+        setOpen(false)
+        setSelectedIndex(i)
+    }
+
+    const menuOptions = [
+        {name: "All Drawings", link: "/drawings"},
+        {name: "Studio Work", link: "/studio"},
+        {name: "Sketches", link: "/sketches"},
+    ]   
+
     useEffect(() => {
-        if (window.location.pathname === "/" && value !== 0) {
-            setValue(0);
-        } else if (window.location.pathname === "/photos" && value !==
-            1) {
-            setValue(1);
-        } else if (window.location.pathname === "/videos" && value !==
-            2) {
-            setValue(2);
-        } else if (window.location.pathname === "/drawings" && value !==
-            3) {
-            setValue(3);
-        } else if (window.location.pathname === "/contact" && value !==
-            4) {
-            setValue(4);
+
+        switch (window.location.pathname) {
+            case "/":
+                if (value !== 0) {
+                    setValue(0)
+                }
+                break;
+            case "/photos":
+                if (value !== 1) {
+                    setValue(1)
+                }
+                break;
+            case "/videos":
+                if (value !== 2) {
+                    setValue(2)
+                }
+                break;
+            case "/drawings":
+                if (value !== 3) {
+                    setValue(3)
+                    setSelectedIndex(0)
+                }
+                break;
+            case "/studio":
+                if (value !== 3) {
+                    setValue(3)
+                    setSelectedIndex(1)
+                }
+                break;
+            case "/sketches":
+                if (value !== 3) {
+                    setValue(3)
+                    setSelectedIndex(2)
+                }
+                break;
+            case "/contact":
+                if (value !== 4) {
+                    setValue(4)
+                }
+                break;
+            default:
+                break
         }
+
     }, [value])
     return (
         <React.Fragment>
@@ -159,24 +201,22 @@ export default function Header(props) {
                             MenuListProps={{onMouseLeave: handleClose}}
                             elevation={0}
                         >
-                            <MenuItem 
-                                onClick={() => {handleClose(); setValue(3)}}
-                                component={Link} 
-                                to="/drawings"
-                                classes={{root: classes.menuItem}}   
-                            >
-                                All Drawings</MenuItem>
-                            <MenuItem 
-                                onClick={() => {handleClose(); setValue(3)}}
-                                component={Link} 
-                                to="/studio"   
-                            >
-                                Studio Work</MenuItem>
-                            <MenuItem onClick={() => {handleClose(); setValue(3)}}
-                                component={Link} 
-                                to="/sketches"   
-                            >
-                                Sketches</MenuItem>
+                            {menuOptions.map((option, index) => (
+                                <MenuItem
+                                    key={option}
+                                    component={Link}
+                                    to={option.link}
+                                    classes={{root: classes.menuItem}}
+                                    onClick={(event) => {
+                                        handleMenuItemClick(event, index)
+                                        setValue(3)
+                                        handleClose()
+                                    }}
+                                    selected={index === selectedIndex && value === 3} 
+                                >
+                                    {option.name}
+                                </MenuItem>
+                            ))}
                         </Menu>
                     </Toolbar>
                 </AppBar>
