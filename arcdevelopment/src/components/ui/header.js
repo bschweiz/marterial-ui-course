@@ -32,9 +32,15 @@ const useStyles = makeStyles(theme => ({
         ...theme.mixins.toolbar
     },
     logo: {
-        height: "3em",
+        height: "4em",
         borderRadius: "3rem",
-        padding: ".5rem"
+        margin: ".5rem",
+        [theme.breakpoints.down("md")]: {
+            height: "3em"
+        },
+        [theme.breakpoints.down("xs")]: {
+            height: "2.5em"
+        },
     },
     logoContainer: {
         padding: 0,
