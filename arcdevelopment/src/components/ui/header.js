@@ -8,6 +8,9 @@ import { makeStyles } from '@material-ui/styles';
 import { Link } from 'react-router-dom';
 import { Menu, MenuItem } from '@material-ui/core'
 
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import { useTheme } from '@material-ui/core/styles'
+
 import logo from '../../assets/BVSLogo.png'
 
 function ElevationScroll(props) {
@@ -64,6 +67,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function Header(props) {
     const classes = useStyles();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.down("md"))
     const [value, setValue] = useState(0);
     const [anchorEl, setAnchorEl] = useState(null);
     const [open, setOpen] = useState(false);
@@ -141,22 +146,10 @@ export default function Header(props) {
         }
 
     }, [value])
-    return (
-        <React.Fragment>
 
-            <ElevationScroll>
-                <AppBar position="fixed">
-                    <Toolbar disableGutters>
-                        <Button
-                            component={Link}
-                            to="/"
-                            disableRipple
-                            onClick={() => setValue(0)}
-                            className={classes.logoContainer}
-                        >
-                            <img alt="BVS_logo" className={classes.logo} src={logo} />
-                        </Button>
-                        <Tabs
+    const tabs = (
+        <React.Fragment>
+            <Tabs
                             value={value}
                             onChange={handleChange}
                             className={classes.tabContainer}
@@ -218,6 +211,25 @@ export default function Header(props) {
                                 </MenuItem>
                             ))}
                         </Menu>
+        </React.Fragment>
+    )
+
+    return (
+        <React.Fragment>
+
+            <ElevationScroll>
+                <AppBar position="fixed">
+                    <Toolbar disableGutters>
+                        <Button
+                            component={Link}
+                            to="/"
+                            disableRipple
+                            onClick={() => setValue(0)}
+                            className={classes.logoContainer}
+                        >
+                            <img alt="BVS_logo" className={classes.logo} src={logo} />
+                        </Button>
+                        { matches ? null : tabs }
                     </Toolbar>
                 </AppBar>
             </ElevationScroll>
