@@ -117,9 +117,32 @@ export default function Header(props) {
                 if (value !== 0) {
                     setValue(0)
                 }
-            case "photos":
+            case "/photos":
                 if (value !== 1) {
                     setValue(1)
+                }
+            case "/videos":
+                if (value !== 2) {
+                    setValue(2)
+                }
+            case "/drawings":
+                if (value !== 3) {
+                    setValue(3)
+                    setSelectedIndex(0)
+                }
+            case "/studio":
+                if (value !== 3) {
+                    setValue(3)
+                    setSelectedIndex(1)
+                }
+            case "/sketches":
+                if (value !== 3) {
+                    setValue(3)
+                    setSelectedIndex(2)
+                }
+            case "/contact":
+                if (value !== 4) {
+                    setValue(4)
                 }
             default:
                 break
