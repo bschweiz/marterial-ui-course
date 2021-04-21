@@ -111,6 +111,20 @@ export default function Header(props) {
             4) {
             setValue(4);
         }
+
+        switch (window.location.pathname) {
+            case "/":
+                if (value !== 0) {
+                    setValue(0)
+                }
+            case "photos":
+                if (value !== 1) {
+                    setValue(1)
+                }
+            default:
+                break
+        }
+
     }, [value])
     return (
         <React.Fragment>
