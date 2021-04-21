@@ -96,54 +96,46 @@ export default function Header(props) {
     ]   
 
     useEffect(() => {
-        if (window.location.pathname === "/" && value !== 0) {
-            setValue(0);
-        } else if (window.location.pathname === "/photos" && value !==
-            1) {
-            setValue(1);
-        } else if (window.location.pathname === "/videos" && value !==
-            2) {
-            setValue(2);
-        } else if (window.location.pathname === "/drawings" && value !==
-            3) {
-            setValue(3);
-        } else if (window.location.pathname === "/contact" && value !==
-            4) {
-            setValue(4);
-        }
 
         switch (window.location.pathname) {
             case "/":
                 if (value !== 0) {
                     setValue(0)
                 }
+                break;
             case "/photos":
                 if (value !== 1) {
                     setValue(1)
                 }
+                break;
             case "/videos":
                 if (value !== 2) {
                     setValue(2)
                 }
+                break;
             case "/drawings":
                 if (value !== 3) {
                     setValue(3)
                     setSelectedIndex(0)
                 }
+                break;
             case "/studio":
                 if (value !== 3) {
                     setValue(3)
                     setSelectedIndex(1)
                 }
+                break;
             case "/sketches":
                 if (value !== 3) {
                     setValue(3)
                     setSelectedIndex(2)
                 }
+                break;
             case "/contact":
                 if (value !== 4) {
                     setValue(4)
                 }
+                break;
             default:
                 break
         }
