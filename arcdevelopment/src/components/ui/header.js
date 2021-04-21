@@ -67,6 +67,7 @@ export default function Header(props) {
     const [value, setValue] = useState(0);
     const [anchorEl, setAnchorEl] = useState(null);
     const [open, setOpen] = useState(false);
+    const [selectedIndex, setSelectedIndex] = useState(0)
 
     const handleChange = (e, value) => {
         setValue(value);
@@ -81,6 +82,18 @@ export default function Header(props) {
         setAnchorEl(null)
         setOpen(false)
     }
+
+    const handleMenuItemClick = (e, i) => {
+        setAnchorEl(null)
+        setOpen(false)
+        setSelectedIndex(i)
+    }
+
+    const menuOptions = [
+        {name: "All Drawings", link: "/drawings"},
+        {name: "Studio Work", link: "/studio"},
+        {name: "Sketches", link: "/sketches"},
+    ]   
 
     useEffect(() => {
         if (window.location.pathname === "/" && value !== 0) {
@@ -159,26 +172,22 @@ export default function Header(props) {
                             MenuListProps={{onMouseLeave: handleClose}}
                             elevation={0}
                         >
-                            <MenuItem 
-                                onClick={() => {handleClose(); setValue(3)}}
-                                component={Link} 
-                                to="/drawings"
-                                classes={{root: classes.menuItem}}   
-                            >
-                                All Drawings</MenuItem>
-                            <MenuItem 
-                                onClick={() => {handleClose(); setValue(3)}}
-                                component={Link} 
-                                to="/studio"   
-                                classes={{root: classes.menuItem}}   
-                            >
-                                Studio Work</MenuItem>
-                            <MenuItem onClick={() => {handleClose(); setValue(3)}}
-                                component={Link} 
-                                to="/sketches"
-                                classes={{root: classes.menuItem}}      
-                            >
-                                Sketches</MenuItem>
+                            {menuOptions.map((option, index) => (
+                                <MenuItem
+                                    key={option}
+                                    component={Link}
+                                    to={option.link}
+                                    classes={{root: classes.menuItem}}
+                                    onClick={(event) => {
+                                        handleMenuItemClick(event, index)
+                                        setValue(3)
+                                        handleClose()
+                                    }}
+                                    selected={index === selectedIndex && value === 3} 
+                                >
+                                    {option.name}
+                                </MenuItem>
+                            ))}
                         </Menu>
                     </Toolbar>
                 </AppBar>
