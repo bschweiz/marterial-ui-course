@@ -7,6 +7,8 @@ import { Tab, Tabs } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { Link } from 'react-router-dom';
 import { Menu, MenuItem } from '@material-ui/core'
+import IconButton from '@material-ui/core/IconButton'
+
 import MenuIcon from '@material-ui/icons/Menu'
 
 import useMediaQuery from '@material-ui/core/useMediaQuery'
@@ -95,8 +97,8 @@ export default function Header(props) {
     const [openMenu, setOpenMenu] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(0)
 
-    const handleChange = (e, value) => {
-        setValue(value);
+    const handleChange = (e, newValue) => {
+        setValue(newValue);
     }
 
     const handleClick = (e) => {
@@ -209,7 +211,7 @@ export default function Header(props) {
                         <Menu
                             id="simple-menu"
                             anchorEl={anchorEl}
-                            open={open}
+                            open={openMenu}
                             onClose={handleClose}
                             classes={{paper: classes.menu}}
                             MenuListProps={{onMouseLeave: handleClose}}
@@ -233,6 +235,26 @@ export default function Header(props) {
                             ))}
                         </Menu>
         </React.Fragment>
+    );
+
+    const drawer = (
+        <React.Fragment>
+            <SwipeableDrawer 
+                disableBackdropTransition={!iOS} 
+                disableDiscovery={iOS}
+                open={openDrawer}
+                onClose={() => setOpenDrawer(false)}
+                onOpen={() => setOpenDrawer(true)}
+            >
+            Sum Dum Example
+            </SwipeableDrawer>
+            <IconButton
+                onClick={() => setOpenDrawer(!openDrawer)}
+                disableRipple
+            >
+                <MenuIcon></MenuIcon>
+            </IconButton>
+        </React.Fragment>
     )
 
     return (
@@ -250,7 +272,7 @@ export default function Header(props) {
                         >
                             <img alt="BVS_logo" className={classes.logo} src={logo} />
                         </Button>
-                        { matches ? null : tabs }
+                        { matches ? drawer : tabs }
                     </Toolbar>
                 </AppBar>
             </ElevationScroll>
