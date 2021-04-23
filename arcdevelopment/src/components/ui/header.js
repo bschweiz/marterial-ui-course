@@ -90,6 +90,9 @@ const useStyles = makeStyles(theme => ({
         "&:hover": {
             backgroundColor: "transparent"
         }
+    },
+    drawer: {
+        
     }
 }));
 
@@ -256,6 +259,7 @@ export default function Header(props) {
                 open={openDrawer}
                 onClose={() => setOpenDrawer(false)}
                 onOpen={() => setOpenDrawer(true)}
+                classes={{paper: classes.drawer}}
             >
             <List disablePadding >
                 <ListItem divider button component={Link} to="/"
