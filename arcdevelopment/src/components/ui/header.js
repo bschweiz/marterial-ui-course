@@ -258,19 +258,29 @@ export default function Header(props) {
                 onOpen={() => setOpenDrawer(true)}
             >
             <List disablePadding >
-                <ListItem divider button component={Link} to="/">
+                <ListItem divider button component={Link} to="/"
+                        onClick={() => setOpenDrawer(false)}
+                >
                     <ListItemText disableTypography>Home</ListItemText>
                 </ListItem>
-                <ListItem divider button component={Link} to="/photos">
+                <ListItem divider button component={Link} to="/photos"
+                        onClick={() => setOpenDrawer(false)}
+                >
                     <ListItemText disableTypography>Photography</ListItemText>
                 </ListItem>
-                <ListItem divider button component={Link} to="/videos">
+                <ListItem divider button component={Link} to="/videos"
+                        onClick={() => setOpenDrawer(false)}
+                >
                     <ListItemText disableTypography>Videos</ListItemText>
                 </ListItem>
-                <ListItem divider button component={Link} to="/drawings">
+                <ListItem divider button component={Link} to="/drawings"
+                        onClick={() => setOpenDrawer(false)}
+                >
                     <ListItemText disableTypography>Drawings</ListItemText>
                 </ListItem>
-                <ListItem divider button component={Link} to="/contact">
+                <ListItem divider button component={Link} to="/contact"
+                        onClick={() => setOpenDrawer(false)}
+                >
                     <ListItemText disableTypography>Contact Me</ListItemText>
                 </ListItem>
             </List>
