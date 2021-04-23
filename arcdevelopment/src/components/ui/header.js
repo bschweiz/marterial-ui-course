@@ -79,8 +79,18 @@ const useStyles = makeStyles(theme => ({
         "&:hover": {
             opacity: 1
         }
+    },
+    drawerIcon: {
+        // add sizing params if desired
+    },
+    drawerIconContainer: {
+        marginLeft: "auto",
+
+        "&:hover": {
+            backgroundColor: "transparent"
+        }
     }
-}))
+}));
 
 export default function Header(props) {
     const classes = useStyles();
@@ -249,6 +259,7 @@ export default function Header(props) {
             Sum Dum Example
             </SwipeableDrawer>
             <IconButton
+                className={classes.drawerIconContainer}
                 onClick={() => setOpenDrawer(!openDrawer)}
                 disableRipple
             >
