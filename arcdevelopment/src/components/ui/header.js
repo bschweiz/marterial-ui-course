@@ -259,16 +259,19 @@ export default function Header(props) {
             >
             <List>
                 <ListItem component={Link} to="/">
-                    <ListItemText>Home</ListItemText>
+                    <ListItemText disableTypography>Home</ListItemText>
                 </ListItem>
                 <ListItem component={Link} to="/photos">
-                    <ListItemText>Photography</ListItemText>
+                    <ListItemText disableTypography>Photography</ListItemText>
                 </ListItem>
                 <ListItem component={Link} to="/videos">
-                    <ListItemText>Videos</ListItemText>
+                    <ListItemText disableTypography>Videos</ListItemText>
                 </ListItem>
                 <ListItem component={Link} to="/drawings">
-                    <ListItemText>Drawings</ListItemText>
+                    <ListItemText disableTypography>Drawings</ListItemText>
+                </ListItem>
+                <ListItem component={Link} to="/contact">
+                    <ListItemText disableTypography>Contact Me</ListItemText>
                 </ListItem>
             </List>
             </SwipeableDrawer>
