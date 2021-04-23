@@ -274,28 +274,33 @@ export default function Header(props) {
                         onClick={() => {setOpenDrawer(false); setValue(0)}}
                         selected={value === 0}
                 >
-                    <ListItemText className={classes.drawerItem} 
+                    <ListItemText className={value === 0 ? 
+                            [classes.drawerItem, classes.drawerItemSelected] : 
+                            classes.drawerItem} 
                             disableTypography>Home</ListItemText>
                 </ListItem>
                 <ListItem divider button component={Link} to="/photos"
                         onClick={() => {setOpenDrawer(false); setValue(1)}}
                         selected={value === 1}
                 >
-                    <ListItemText className={classes.drawerItem} 
+                    <ListItemText className={value === 1 ? 
+                            [classes.drawerItem, classes.drawerItemSelected] : classes.drawerItem} 
                             disableTypography>Photography</ListItemText>
                 </ListItem>
                 <ListItem divider button component={Link} to="/videos"
                         onClick={() => {setOpenDrawer(false); setValue(2)}}
                         selected={value === 2}
                 >
-                    <ListItemText className={classes.drawerItem} 
+                    <ListItemText className={value === 2 ? 
+                            [classes.drawerItem, classes.drawerItemSelected] : classes.drawerItem} 
                             disableTypography>Videos</ListItemText>
                 </ListItem>
                 <ListItem divider button component={Link} to="/drawings"
                         onClick={() => {setOpenDrawer(false); setValue(3)}}
                         selected={value === 3}
                 >
-                    <ListItemText className={classes.drawerItem} 
+                    <ListItemText className={value === 3 ? 
+                            [classes.drawerItem, classes.drawerItemSelected] : classes.drawerItem} 
                             disableTypography>Drawings</ListItemText>
                 </ListItem>
                 <ListItem 
@@ -304,7 +309,8 @@ export default function Header(props) {
                         onClick={() => {setOpenDrawer(false); setValue(4)}}
                         selected={value === 4}
                 >
-                    <ListItemText className={classes.drawerItem} 
+                    <ListItemText className={classes === 0 ? 
+                            [classes.drawerItem, classes.drawerItemSelected] : classes.drawerItem} 
                             disableTypography>Contact Me</ListItemText>
                 </ListItem>
             </List>
