@@ -96,10 +96,14 @@ const useStyles = makeStyles(theme => ({
     },
     drawerItem: {
         ...theme.typography.tab,
-        color: "white"
+        color: "white",
+        opacity: 0.7
     },
     drawerItemContact: {
         backgroundColor: theme.palette.common.teal,
+    },
+    drawerItemSelected: {
+        opacity: 1
     }
 }));
 
@@ -270,36 +274,61 @@ export default function Header(props) {
             >
             <List disablePadding >
                 <ListItem divider button component={Link} to="/"
-                        onClick={() => setOpenDrawer(false)}
+                        onClick={() => {setOpenDrawer(false); setValue(0)}}
+                        selected={value === 0}
                 >
-                    <ListItemText className={classes.drawerItem} 
-                            disableTypography>Home</ListItemText>
+                    <ListItemText className={value === 0 ? 
+                            [classes.drawerItem, classes.drawerItemSelected] : 
+                            classes.drawerItem} 
+                            disableTypography
+                            >
+                            Home</ListItemText>
                 </ListItem>
                 <ListItem divider button component={Link} to="/photos"
-                        onClick={() => setOpenDrawer(false)}
+                        onClick={() => {setOpenDrawer(false); setValue(1)}}
+                        selected={value === 1}
                 >
-                    <ListItemText className={classes.drawerItem} 
-                            disableTypography>Photography</ListItemText>
+                    <ListItemText className={value === 1 ? 
+                            [classes.drawerItem, classes.drawerItemSelected] : 
+                            classes.drawerItem} 
+                            disableTypography
+                            >
+                            Photography</ListItemText>
                 </ListItem>
                 <ListItem divider button component={Link} to="/videos"
-                        onClick={() => setOpenDrawer(false)}
+                        onClick={() => {setOpenDrawer(false); setValue(2)}}
+                        selected={value === 2}
                 >
-                    <ListItemText className={classes.drawerItem} 
-                            disableTypography>Videos</ListItemText>
+                    <ListItemText className={value === 2 ? 
+                            [classes.drawerItem, classes.drawerItemSelected] : 
+                            classes.drawerItem} 
+                            disableTypography
+                            >
+                            Videos</ListItemText>
                 </ListItem>
                 <ListItem divider button component={Link} to="/drawings"
-                        onClick={() => setOpenDrawer(false)}
+                        onClick={() => {setOpenDrawer(false); setValue(3)}}
+                        selected={value === 3}
                 >
-                    <ListItemText className={classes.drawerItem} 
-                            disableTypography>Drawings</ListItemText>
+                    <ListItemText className={value === 3 ? 
+                            [classes.drawerItem, classes.drawerItemSelected] : 
+                            classes.drawerItem} 
+                            disableTypography
+                            >
+                            Drawings</ListItemText>
                 </ListItem>
                 <ListItem 
                         className={classes.drawerItemContact}
                         divider button component={Link} to="/contact"
-                        onClick={() => setOpenDrawer(false)}
+                        onClick={() => {setOpenDrawer(false); setValue(4)}}
+                        selected={value === 4}
                 >
-                    <ListItemText className={classes.drawerItem} 
-                            disableTypography>Contact Me</ListItemText>
+                    <ListItemText className={value === 4 ? 
+                            [classes.drawerItem, classes.drawerItemSelected] : 
+                            classes.drawerItem} 
+                            disableTypography
+                            >
+                            Contact Me</ListItemText>
                 </ListItem>
             </List>
             </SwipeableDrawer>
