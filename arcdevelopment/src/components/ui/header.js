@@ -96,7 +96,8 @@ const useStyles = makeStyles(theme => ({
     },
     drawerItem: {
         ...theme.typography.tab,
-        color: "white"
+        color: "white",
+        opacity: 0.7
     },
     drawerItemContact: {
         backgroundColor: theme.palette.common.teal,
