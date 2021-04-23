@@ -257,7 +257,20 @@ export default function Header(props) {
                 onClose={() => setOpenDrawer(false)}
                 onOpen={() => setOpenDrawer(true)}
             >
-            Sum Dum Example
+            <List>
+                <ListItem component={Link} to="/">
+                    <ListItemText>Home</ListItemText>
+                </ListItem>
+                <ListItem component={Link} to="/photos">
+                    <ListItemText>Photography</ListItemText>
+                </ListItem>
+                <ListItem component={Link} to="/videos">
+                    <ListItemText>Videos</ListItemText>
+                </ListItem>
+                <ListItem component={Link} to="/drawings">
+                    <ListItemText>Drawings</ListItemText>
+                </ListItem>
+            </List>
             </SwipeableDrawer>
             <IconButton
                 className={classes.drawerIconContainer}
