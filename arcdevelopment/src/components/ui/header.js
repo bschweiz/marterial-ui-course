@@ -270,25 +270,29 @@ export default function Header(props) {
             >
             <List disablePadding >
                 <ListItem divider button component={Link} to="/"
-                        onClick={() => setOpenDrawer(false)}
+                        onClick={() => {setOpenDrawer(false); setValue(0)}}
+                        selected={value === 0}
                 >
                     <ListItemText className={classes.drawerItem} 
                             disableTypography>Home</ListItemText>
                 </ListItem>
                 <ListItem divider button component={Link} to="/photos"
-                        onClick={() => setOpenDrawer(false)}
+                        onClick={() => {setOpenDrawer(false); setValue(1)}}
+                        selected={value === 1}
                 >
                     <ListItemText className={classes.drawerItem} 
                             disableTypography>Photography</ListItemText>
                 </ListItem>
                 <ListItem divider button component={Link} to="/videos"
-                        onClick={() => setOpenDrawer(false)}
+                        onClick={() => {setOpenDrawer(false); setValue(2)}}
+                        selected={value === 2}
                 >
                     <ListItemText className={classes.drawerItem} 
                             disableTypography>Videos</ListItemText>
                 </ListItem>
                 <ListItem divider button component={Link} to="/drawings"
-                        onClick={() => setOpenDrawer(false)}
+                        onClick={() => {setOpenDrawer(false); setValue(3)}}
+                        selected={value === 3}
                 >
                     <ListItemText className={classes.drawerItem} 
                             disableTypography>Drawings</ListItemText>
@@ -296,7 +300,8 @@ export default function Header(props) {
                 <ListItem 
                         className={classes.drawerItemContact}
                         divider button component={Link} to="/contact"
-                        onClick={() => setOpenDrawer(false)}
+                        onClick={() => {setOpenDrawer(false); setValue(4)}}
+                        selected={value === 4}
                 >
                     <ListItemText className={classes.drawerItem} 
                             disableTypography>Contact Me</ListItemText>
