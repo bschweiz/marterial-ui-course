@@ -90,6 +90,16 @@ const useStyles = makeStyles(theme => ({
         "&:hover": {
             backgroundColor: "transparent"
         }
+    },
+    drawer: {
+        backgroundColor: theme.palette.common.blue
+    },
+    drawerItem: {
+        ...theme.typography.tab,
+        color: "white"
+    },
+    drawerItemContact: {
+        backgroundColor: theme.palette.common.teal,
     }
 }));
 
@@ -256,19 +266,40 @@ export default function Header(props) {
                 open={openDrawer}
                 onClose={() => setOpenDrawer(false)}
                 onOpen={() => setOpenDrawer(true)}
+                classes={{paper: classes.drawer}}
             >
-            <List>
-                <ListItem component={Link} to="/">
-                    <ListItemText>Home</ListItemText>
+            <List disablePadding >
+                <ListItem divider button component={Link} to="/"
+                        onClick={() => setOpenDrawer(false)}
+                >
+                    <ListItemText className={classes.drawerItem} 
+                            disableTypography>Home</ListItemText>
                 </ListItem>
-                <ListItem component={Link} to="/photos">
-                    <ListItemText>Photography</ListItemText>
+                <ListItem divider button component={Link} to="/photos"
+                        onClick={() => setOpenDrawer(false)}
+                >
+                    <ListItemText className={classes.drawerItem} 
+                            disableTypography>Photography</ListItemText>
                 </ListItem>
-                <ListItem component={Link} to="/videos">
-                    <ListItemText>Videos</ListItemText>
+                <ListItem divider button component={Link} to="/videos"
+                        onClick={() => setOpenDrawer(false)}
+                >
+                    <ListItemText className={classes.drawerItem} 
+                            disableTypography>Videos</ListItemText>
                 </ListItem>
-                <ListItem component={Link} to="/drawings">
-                    <ListItemText>Drawings</ListItemText>
+                <ListItem divider button component={Link} to="/drawings"
+                        onClick={() => setOpenDrawer(false)}
+                >
+                    <ListItemText className={classes.drawerItem} 
+                            disableTypography>Drawings</ListItemText>
+                </ListItem>
+                <ListItem 
+                        className={classes.drawerItemContact}
+                        divider button component={Link} to="/contact"
+                        onClick={() => setOpenDrawer(false)}
+                >
+                    <ListItemText className={classes.drawerItem} 
+                            disableTypography>Contact Me</ListItemText>
                 </ListItem>
             </List>
             </SwipeableDrawer>
