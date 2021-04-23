@@ -92,7 +92,11 @@ const useStyles = makeStyles(theme => ({
         }
     },
     drawer: {
-        
+        backgroundColor: theme.palette.common.blue
+    },
+    drawerItem: {
+        ...theme.typography.tab,
+        color: "white"
     }
 }));
 
@@ -265,27 +269,32 @@ export default function Header(props) {
                 <ListItem divider button component={Link} to="/"
                         onClick={() => setOpenDrawer(false)}
                 >
-                    <ListItemText disableTypography>Home</ListItemText>
+                    <ListItemText className={classes.drawerItem} 
+                            disableTypography>Home</ListItemText>
                 </ListItem>
                 <ListItem divider button component={Link} to="/photos"
                         onClick={() => setOpenDrawer(false)}
                 >
-                    <ListItemText disableTypography>Photography</ListItemText>
+                    <ListItemText className={classes.drawerItem} 
+                            disableTypography>Photography</ListItemText>
                 </ListItem>
                 <ListItem divider button component={Link} to="/videos"
                         onClick={() => setOpenDrawer(false)}
                 >
-                    <ListItemText disableTypography>Videos</ListItemText>
+                    <ListItemText className={classes.drawerItem} 
+                            disableTypography>Videos</ListItemText>
                 </ListItem>
                 <ListItem divider button component={Link} to="/drawings"
                         onClick={() => setOpenDrawer(false)}
                 >
-                    <ListItemText disableTypography>Drawings</ListItemText>
+                    <ListItemText className={classes.drawerItem} 
+                            disableTypography>Drawings</ListItemText>
                 </ListItem>
                 <ListItem divider button component={Link} to="/contact"
                         onClick={() => setOpenDrawer(false)}
                 >
-                    <ListItemText disableTypography>Contact Me</ListItemText>
+                    <ListItemText className={classes.drawerItem} 
+                            disableTypography>Contact Me</ListItemText>
                 </ListItem>
             </List>
             </SwipeableDrawer>
