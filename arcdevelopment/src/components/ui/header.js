@@ -97,6 +97,9 @@ const useStyles = makeStyles(theme => ({
     drawerItem: {
         ...theme.typography.tab,
         color: "white"
+    },
+    drawerItemContact: {
+        backgroundColor: theme.palette.common.teal,
     }
 }));
 
@@ -290,7 +293,9 @@ export default function Header(props) {
                     <ListItemText className={classes.drawerItem} 
                             disableTypography>Drawings</ListItemText>
                 </ListItem>
-                <ListItem divider button component={Link} to="/contact"
+                <ListItem 
+                        className={classes.drawerItemContact}
+                        divider button component={Link} to="/contact"
                         onClick={() => setOpenDrawer(false)}
                 >
                     <ListItemText className={classes.drawerItem} 
