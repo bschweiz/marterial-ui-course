@@ -157,7 +157,14 @@ export default function Header(props) {
         },
         {
             name: "Videos", link: "/videos"
+        },
+        {
+            name: "Drawings", link: "/drawings"
+        },
+        {
+            name: "Contact", link: "/contact"
         }
+
     ]
 
     useEffect(() => {
