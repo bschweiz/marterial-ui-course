@@ -148,6 +148,8 @@ export default function Header(props) {
         {name: "Sketches", link: "/sketches"},
     ]   
 
+    const routes = 
+
     useEffect(() => {
 
         switch (window.location.pathname) {
